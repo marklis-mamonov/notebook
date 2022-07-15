@@ -1,0 +1,13 @@
+.menu_button
+{
+    background-color: #9e0e0e;
+    background-image: linear-gradient(to top, #c72a2a 0%, #9e0e0e 100%);
+    box-shadow: 0 5px 5px #853232, 0 9px 0 #5e2525, 0px 9px 10px rgb(0 0 0 / 40%), inset 0px 2px 9px rgb(255 255 255 / 20%), inset 0 -2px 9px rgb(0 0 0 / 20%);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-radius: 35px 5px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+}

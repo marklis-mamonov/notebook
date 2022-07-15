@@ -1,0 +1,202 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Notebook API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/notebook": {
+            "get": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Получение всех записей постранично",
+                "operationId": "0329e4370ec4d21a2c50fc6e740252b2",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Количество записей на странице",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный запрос",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Note"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Добавление новой записи",
+                "operationId": "504aa5a784a543651b7721cb4fceec7b",
+                "requestBody": {
+                    "description": "Данные о записи",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Note"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Успешный запрос",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Note"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Ошибка валидации"
+                    }
+                }
+            }
+        },
+        "/api/v1/notebook/{id}": {
+            "get": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Получение одной записи",
+                "operationId": "525af6aa677789f3290902cec526ec04",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id записи",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный запрос",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Note"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Запись не найдена"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Изменение существующей записи",
+                "operationId": "87284077964f6127de503260780792a3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id записи на изменение",
+                        "required": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "Данные о записи",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Note"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Успешный запрос",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Note"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Ошибка валидации"
+                    },
+                    "404": {
+                        "description": "Запись не найдена"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Удаление записи",
+                "operationId": "4ca7cc89741962a973b7b0b7d83cbd16",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id записи на удаление",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный запрос"
+                    },
+                    "404": {
+                        "description": "Запись не найдена"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Note": {
+                "title": "Note",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "schema": "Note",
+                        "type": "string"
+                    },
+                    "birthdate": {
+                        "schema": "Note",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "photo": {
+                        "schema": "Note",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
