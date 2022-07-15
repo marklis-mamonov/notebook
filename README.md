@@ -1,5 +1,5 @@
 
-"# REST API Notebook" 
+# REST API Notebook
 
 Был разработан REST API для записной книжки.
 Приложение было разработано с использованием Laravel.
