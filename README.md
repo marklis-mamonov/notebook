@@ -18,9 +18,9 @@
 В контроллере App/Controllers/Api/v1/NoteController.php было реализовано 5 методов:
 1. index (GET /api/v1/notebook/).
 2. store (POST /api/v1/notebook/).
-3. show (GET /api/v1/notebook/<id>/).
-4. update (PUT /api/v1/notebook/<id>/).
-5. destroy (DELETE /api/v1/notebook/<id>/).
+3. show (GET /api/v1/notebook/{id}/).
+4. update (PUT /api/v1/notebook/{id}/).
+5. destroy (DELETE /api/v1/notebook/{id}/).
 
 Метод index позволяет получить данные (все, кроме created_at и updated_at_at) о записях из базы данных постранично. Количество записей на странице определяется параметром per_page (по умолчанию per_page = 10).
 
